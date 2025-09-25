@@ -9,7 +9,7 @@ const AboutUs = () => {
       <Navbar />
       <div className="about-hero">
         <h1>
-          About <span>Netflix - Clone</span>
+          About <span>Netflix</span>
         </h1>
         <p>Your gateway to the world of entertainment.</p>
       </div>
@@ -55,7 +55,7 @@ const AboutUs = () => {
         <section>
           <h2>Why Choose Us</h2>
           <p>
-            Because we don’t just stream content — we deliver experiences.
+            Because we don't just stream content — we deliver experiences.
             Whether it's binge-watching thrillers or relaxing with comedies,
             StreamFlix is your companion.
           </p>
