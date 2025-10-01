@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import "./TitleCards.css";
 import { Link } from "react-router-dom";
+import info_icon from "../../assets/info_icon.png";
 
 const TitleCards = ({ title, category }) => {
   const genreMap = {
@@ -37,9 +38,9 @@ const TitleCards = ({ title, category }) => {
     },
   };
 
-  // Function to handle the scroll event
+  //scroll event
   const handleWheel = (event) => {
-    event.preventDefault(); // Prevent the default scroll behavior - Vertically scrolling avoid
+    event.preventDefault(); // Prevent the default scroll behavior (Vertically scrolling)
     cardsRef.current.scrollLeft += event.deltaY; // Scroll horizontally
   };
 
@@ -84,7 +85,21 @@ const TitleCards = ({ title, category }) => {
                   <button className="play-btn">▶ Play</button>
                 </Link>
                 <Link to={`/movies/${card.id}`}>
-                  <button className="details-btn">ℹ Details</button>
+                  <button
+                    className="details-btn"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img
+                      src={info_icon}
+                      alt=""
+                      style={{ width: "15px", height: "15px" }}
+                    />
+                    Details
+                  </button>
                 </Link>
               </div>
             </div>

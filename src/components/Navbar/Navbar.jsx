@@ -16,8 +16,6 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  console.log("Navbar - Loading:", loading, "CurrentUser:", currentUser);
-
   const options = {
     method: "GET",
     headers: {
@@ -61,7 +59,6 @@ const Navbar = () => {
           )
           .slice(0, 5);
         setSearchResults(filteredResults);
-        console.log("Search Results:", filteredResults);
       } catch (error) {
         console.error("Error fetching search results:", error);
       }

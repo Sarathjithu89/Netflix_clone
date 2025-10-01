@@ -28,20 +28,35 @@ const db = getFirestore(app);
 
 const signUp = async (name, email, password) => {
   try {
+    if (!name) {
+      toast.error("Please enter your user name");
+      return;
+    } else if (!email) {
+      toast.error("Please enter your Email");
+      return;
+    } else if (!password) {
+      toast.error("Please enter your password");
+      return;
+    }
+
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
+
     await setDoc(doc(db, "users", user.uid), {
       uid: user.uid,
       name: name,
       authProvider: "local",
       email: email,
     });
+
     console.log("User added to Firestore:", { uid: user.uid, name, email });
     toast.success("Signed up successfully!");
     window.location.reload();
   } catch (error) {
     console.error("SignUp Error:", error);
-    toast.error(error.code.split("/")[1].split("-").join(" "));
+    toast.error(
+      error.code ? error.code.split("/")[1].split("-").join(" ") : error.message
+    );
   }
 };
 

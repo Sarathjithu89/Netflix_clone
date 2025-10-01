@@ -33,7 +33,6 @@ const Home = () => {
     };
     fetchTrending();
   }, []);
-  console.log("Trending", heroMovie);
   return (
     <div className="home">
       <Navbar />
