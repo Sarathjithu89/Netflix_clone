@@ -15,10 +15,7 @@ const App = () => {
 
   useEffect(() => {
     if (!loading) {
-      if (currentUser) {
-        console.log("App - User is signed in:");
-        navigate("/");
-      } else {
+      if (!currentUser) {
         console.log("App - No user is signed in");
         navigate("/login");
       }

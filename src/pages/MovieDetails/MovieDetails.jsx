@@ -111,7 +111,13 @@ const MovieDetails = () => {
             <Link to={`/player/${movie.id}`} className="play-btn">
               ▶ Play
             </Link>
-            <button onClick={handleAddToFavorites} className="add-favorite-btn">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                handleAddToFavorites();
+              }}
+              className="add-favorite-btn"
+            >
               + Add to Favorites
             </button>
           </div>

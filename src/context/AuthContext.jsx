@@ -14,7 +14,6 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      // console.log("onAuthStateChanged - User:", user);
       if (user) {
         try {
           const q = query(
@@ -25,10 +24,9 @@ export const AuthProvider = ({ children }) => {
           console.log("Firestore Query Snapshot Empty:", querySnapshot.empty);
           if (!querySnapshot.empty) {
             const userDoc = querySnapshot.docs[0];
-            // console.log("Firestore Doc Data:", userDoc.data());
+
             setCurrentUser({ uid: user.uid, ...userDoc.data() });
           } else {
-            // console.log("No Firestore doc found for user");
             setCurrentUser({ uid: user.uid, email: user.email });
           }
         } catch (error) {

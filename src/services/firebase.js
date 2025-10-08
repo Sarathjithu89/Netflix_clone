@@ -65,10 +65,8 @@ const login = async (email, password) => {
     const res = await signInWithEmailAndPassword(auth, email, password);
     console.log("Login successful:", res.user);
     toast.success("Logged in successfully!");
-    window.location.reload();
   } catch (error) {
     console.error("Login Error:", error);
-    toast.error(error.code.split("/")[1].split("-").join(" "));
   }
 };
 

@@ -83,7 +83,10 @@ const Favorites = () => {
                   <div className="favorite-info">
                     <h3>{movie.title}</h3>
                     <button
-                      onClick={() => removeFavorite(movie.id)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        removeFavorite(movie.id);
+                      }}
                       className="remove-btn"
                     >
                       Remove
